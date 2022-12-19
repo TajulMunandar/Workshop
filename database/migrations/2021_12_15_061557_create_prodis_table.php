@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name_prodi');
             $table->string('nama_ketua_prodi');
-            $table->foreignId('id_user')->unique()->constrained('users')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });
     }
