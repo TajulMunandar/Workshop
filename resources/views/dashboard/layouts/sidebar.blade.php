@@ -16,46 +16,33 @@
         </a>
       </li>
       <li class="menu-item {{ Request::is('user') ? 'active' : '' }}">
-        <a href="/dashboard" class="menu-link">
+        <a href="{{ route("user.index") }}" class="menu-link">
           <i class="fa-duotone fa-user me-3"></i>
           <div data-i18n="User">User</div>
         </a>
       </li>
-      <li class="menu-item {{ Request::is('user') ? 'active' : '' }}">
-        <a href="/dashboard" class="menu-link">
+      <li class="menu-item {{ Request::is('prodi') ? 'active' : '' }}">
+        <a href="/dashboard/prodi" class="menu-link">
           <i class="fa-duotone fa-building me-3"></i>
           <div data-i18n="Prodi">Prodi</div>
         </a>
       </li>
-      <li class="menu-item {{ Request::is('user') ? 'active' : '' }}">
-        <a href="/dashboard" class="menu-link">
+      <li class="menu-item {{ Request::is('matakuliah') ? 'active' : '' }}">
+        <a href="/dashboard/matakuliah" class="menu-link">
           <i class="fa-duotone fa-laptop-file me-3"></i>
           <div data-i18n="Mata-Kuliah">Mata Kuliah</div>
         </a>
       </li>
 
-      <li class="menu-item {{ Request::is('user') ? 'active' : '' }}">
-        <a href="/dashboard" class="menu-link">
+      <li class="menu-item {{ Request::is('materi') ? 'active' : '' }}">
+        <a href="/dashboard/materi" class="menu-link">
           <i class="fa-duotone fa-newspaper me-3"></i>
           <div data-i18n="Materi">Materi</div>
         </a>
       </li>
 
         {{-- User --}}
-        <li class="menu-item {{ Request::is('dashboard/user*') ? 'active open' : '' }}">
-          <a href="" class="menu-link menu-toggle">
-            <i class="fa-duotone fa-user me-3"></i>
-            <div data-i18n="Layouts">User</div>
-          </a>
 
-          <ul class="menu-sub">
-            <li class="menu-item {{ Request::is('dashboard/user/list-user*') ? 'active' : '' }}">
-              <a href="/dashboard/user/list-user" class="menu-link">
-                <div data-i18n="user">Management User</div>
-              </a>
-            </li>
-          </ul>
-        </li>
 
         {{-- Progress --}}
         {{-- <li class="menu-item {{ Request::is('dashboard/progress*') ? 'active open' : '' }}">

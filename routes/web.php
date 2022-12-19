@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\DashboardProdiController;
+use App\Http\Controllers\DashboardMateriController;
+use App\Http\Controllers\DashboardMatakuliahController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -19,9 +23,15 @@ Route::get('/', function () {
     return view('dashboard.index');
 });
 
-Route::prefix('dashboard', function(){
 
+
+Route::prefix('/dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
+    Route::resource('/user',DashboardUserController::class);
+    Route::get('/prodi', [DashboardProdiController::class, 'index']);
+    Route::get('/materi', [DashboardMateriController::class, 'index']);
+    Route::get('/matakuliah', [DashboardMatakuliahController::class, 'index']);
+
 });
 
 Route::controller(LoginController::class)->group(function () {

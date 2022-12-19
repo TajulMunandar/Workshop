@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Prodis;
+use App\Http\Requests\StoreProdisRequest;
+use App\Http\Requests\UpdateProdisRequest;
 
-class DashboardUserController extends Controller
+class DashboardProdiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,7 @@ class DashboardUserController extends Controller
      */
     public function index()
     {
-        return view('dashboard.user.index', [
+        return view('dashboard.prodi.index', [
             'title' => 'Dashboard',
         ]);
     }
@@ -25,18 +27,16 @@ class DashboardUserController extends Controller
      */
     public function create()
     {
-        return view('dashboard.user.create', [
-            'title' => 'Dashboard',
-        ]);
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreProdisRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProdisRequest $request)
     {
         //
     }
@@ -44,10 +44,10 @@ class DashboardUserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Prodis  $prodis
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Prodis $prodis)
     {
         //
     }
@@ -55,10 +55,10 @@ class DashboardUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Prodis  $prodis
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Prodis $prodis)
     {
         //
     }
@@ -66,11 +66,11 @@ class DashboardUserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\UpdateProdisRequest  $request
+     * @param  \App\Models\Prodis  $prodis
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProdisRequest $request, Prodis $prodis)
     {
         //
     }
@@ -78,10 +78,10 @@ class DashboardUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Prodis  $prodis
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Prodis $prodis)
     {
         //
     }
