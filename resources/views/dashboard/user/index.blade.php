@@ -108,6 +108,40 @@
                                             <div class="modal-body">
                                                 <input type="hidden" name="id" value="">
                                                 <div class="mb-3">
+                                                    <label for="nim" class="form-label">Ubah Nim</label>
+                                                    <div id="nim" class="input-group">
+                                                        <input type="nim"
+                                                            class="form-control border-end-0 @error('nim') is-invalid @enderror"
+                                                            name="nim" id="nim" value="" required>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nama" class="form-label">Ubah Nama</label>
+                                                    <div id="nama" class="input-group">
+                                                        <input type="nama"
+                                                            class="form-control border-end-0 @error('nama') is-invalid @enderror"
+                                                            name="nama" id="nama" value="" required>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nama" class="form-label">Ubah Asal Sekolah</label>
+                                                    <div id="nama" class="input-group">
+                                                        <input type="nama"
+                                                            class="form-control border-end-0 @error('nama') is-invalid @enderror"
+                                                            name="nama" id="nama" value="" required>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nama" class="form-label">Ubah Role</label>
+                                                    <div id="nama" class="input-group">
+                                                            <select class="form-select" name="role" id="role">
+                                                                <option value="0">Mahasiswa</option>
+                                                                <option value="1">Guru</option>
+                                                                <option value="2">Operator</option>
+                                                            </select>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
                                                     <label for="password" class="form-label">Password Baru</label>
                                                     <div id="pwd1" class="input-group">
                                                         <input type="password"
@@ -129,7 +163,10 @@
                                                     <label for="password2" class="form-label">Konfirmasi Password
                                                         Baru</label>
                                                     <div id="pwd2" class="input-group">
-                                                        <input type="password"class="form-control border-end-0 @error('password2') is-invalid @enderror" name="password2" id="password2" value="{{ old('password2') }}"required>
+                                                        <input
+                                                            type="password"class="form-control border-end-0 @error('password2') is-invalid @enderror"
+                                                            name="password2" id="password2"
+                                                            value="{{ old('password2') }}"required>
                                                         <span class="input-group-text cursor-pointer">
                                                             <i class="fa-regular fa-eye-slash" id="togglePassword"></i>
                                                         </span>

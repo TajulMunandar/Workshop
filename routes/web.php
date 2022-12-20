@@ -29,7 +29,7 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('/user',DashboardUserController::class);
     Route::get('/prodi', [DashboardProdiController::class, 'index']);
-    Route::get('/materi', [DashboardMateriController::class, 'index']);
+    Route::resource('/materi',DashboardMateriController::class);
     Route::get('/matakuliah', [DashboardMatakuliahController::class, 'index']);
 
 });

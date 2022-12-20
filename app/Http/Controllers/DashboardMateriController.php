@@ -27,7 +27,9 @@ class DashboardMateriController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.materi.create', [
+            'title' => 'Dashboard',
+        ]);
     }
 
     /**
@@ -58,9 +60,11 @@ class DashboardMateriController extends Controller
      * @param  \App\Models\Prodis  $prodis
      * @return \Illuminate\Http\Response
      */
-    public function edit(Prodis $prodis)
+    public function edit()
     {
-        //
+        return view('dashboard.materi.edit', [
+            'title' => 'Dashboard',
+        ]);
     }
 
     /**
