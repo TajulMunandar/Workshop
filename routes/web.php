@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardProdiController;
 use App\Http\Controllers\DashboardMateriController;
@@ -23,6 +24,7 @@ Route::get('/', function () {
     return view('dashboard.index');
 });
 
+Route::get('/beranda', [BerandaController::class, 'index']);
 
 
 Route::prefix('/dashboard')->group(function () {
