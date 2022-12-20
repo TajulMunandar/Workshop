@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prodis;
-use App\Http\Requests\StoreProdisRequest;
-use App\Http\Requests\UpdateProdisRequest;
+use App\Models\Matakuliah;
+use App\Http\Requests\StoreMatakuliahRequest;
+use App\Http\Requests\UpdateMatakuliahRequest;
 
 class DashboardMatakuliahController extends Controller
 {
@@ -16,7 +16,7 @@ class DashboardMatakuliahController extends Controller
     public function index()
     {
         return view('dashboard.matakuliah.index', [
-            'title' => 'Dashboard',
+            'title' => 'Matakuliah',
         ]);
     }
 
@@ -33,10 +33,10 @@ class DashboardMatakuliahController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProdisRequest  $request
+     * @param  \App\Http\Requests\StoreMatakuliahRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProdisRequest $request)
+    public function store(StoreMatakuliahRequest $request)
     {
         //
     }
@@ -44,10 +44,10 @@ class DashboardMatakuliahController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Prodis  $prodis
+     * @param  \App\Models\Matakuliah  $matakuliah
      * @return \Illuminate\Http\Response
      */
-    public function show(Prodis $prodis)
+    public function show(Matakuliah $matakuliah)
     {
         //
     }
@@ -55,10 +55,10 @@ class DashboardMatakuliahController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Prodis  $prodis
+     * @param  \App\Models\Matakuliah  $matakuliah
      * @return \Illuminate\Http\Response
      */
-    public function edit(Prodis $prodis)
+    public function edit(Matakuliah $matakuliah)
     {
         //
     }
@@ -66,11 +66,11 @@ class DashboardMatakuliahController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProdisRequest  $request
-     * @param  \App\Models\Prodis  $prodis
+     * @param  \App\Http\Requests\UpdateMatakuliahRequest  $request
+     * @param  \App\Models\Matakuliah  $matakuliah
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProdisRequest $request, Prodis $prodis)
+    public function update(UpdateMatakuliahRequest $request, Matakuliah $matakuliah)
     {
         //
     }
@@ -78,10 +78,10 @@ class DashboardMatakuliahController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Prodis  $prodis
+     * @param  \App\Models\Matakuliah  $matakuliah
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Prodis $prodis)
+    public function destroy(Matakuliah $matakuliah)
     {
         //
     }

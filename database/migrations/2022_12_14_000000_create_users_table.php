@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('nim')->unique();
             $table->string('asalkampus');
             $table->string('password');
-            $table->string('role');
-            $table->foreignId('id_prodi')->unique()->constrained('prodis')->onUpdate('cascade')->onDelete('restrict');
+            $table->tinyInteger('role');
+            $table->foreignId('id_prodi')->constrained('prodis')->onUpdate('cascade')->onDelete('restrict');
             $table->rememberToken();
             $table->timestamps();
         });
