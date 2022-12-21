@@ -9,7 +9,7 @@
             <i class="fa-duotone fa-user-circle fa-3x text-primary"></i>
             <div class="d-flex flex-column ms-3">
               <h5 class="card-title fs-6 mb-0">User</h5>
-              <p class="card-text fs-4 fw-semibold">2</p>
+              <p class="card-text fs-4 fw-semibold">{{ $user }}</p>
             </div>
           </div>
         </div>
@@ -20,7 +20,7 @@
             <i class="fa-duotone fa-newspaper fa-3x text-dark"></i>
             <div class="d-flex flex-column ms-3">
               <h5 class="card-title fs-6 mb-0">Guru</h5>
-              <p class="card-text fs-4 fw-semibold">1</p>
+              <p class="card-text fs-4 fw-semibold">{{ $dosen }}</p>
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@
             <i class="fa-duotone fa-memo-circle-check fa-3x text-info"></i>
             <div class="d-flex flex-column ms-3">
               <h5 class="card-title fs-6 mb-0">Materi</h5>
-              <p class="card-text fs-4 fw-semibold">3</p>
+              <p class="card-text fs-4 fw-semibold">{{ $materi }}</p>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\Prodi;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class DashboardUserController extends Controller
@@ -121,5 +122,23 @@ class DashboardUserController extends Controller
     {
         User::destroy($user->id);
         return redirect('/dashboard/user')->with('success', "user $user->nama berhasil dihapus!");
+    }
+
+    public function resetPasswordAdmin(Request $request)
+    {
+        $rules = [
+            'password' => 'required|min:5|max:255',
+        ];
+
+        if ($request->password == $request->password2) {
+            $validatedData = $request->validate($rules);
+            $validatedData['password'] = Hash::make($validatedData['password']);
+
+            User::where('id', $request->id)->update($validatedData);
+        } else {
+            return back()->with('failed', 'Konfirmasi password tidak sesuai');
+        }
+
+        return redirect('/dashboard/user')->with('success', 'Password berhasil direset!');
     }
 }

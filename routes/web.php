@@ -20,15 +20,12 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.index');
-});
-
-
+Route::get('/', [DashboardController::class, 'index']);
 
 Route::prefix('/dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('/user',DashboardUserController::class);
+    Route::post('/user/reset-password', [DashboardUserController::class, 'resetPasswordAdmin']);
     Route::resource('/prodi', DashboardProdiController::class);
     Route::get('/materi', [DashboardMateriController::class, 'index']);
     Route::get('/matakuliah', [DashboardMatakuliahController::class, 'index']);
