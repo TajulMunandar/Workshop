@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prodis;
-use App\Http\Requests\StoreProdisRequest;
-use App\Http\Requests\UpdateProdisRequest;
+use App\Models\Materi;
+use App\Http\Requests\StoreMateriRequest;
+use App\Http\Requests\UpdateMateriRequest;
 
 class DashboardMateriController extends Controller
 {
@@ -35,10 +35,10 @@ class DashboardMateriController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProdisRequest  $request
+     * @param  \App\Http\Requests\StoreMateriRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProdisRequest $request)
+    public function store(StoreMateriRequest $request)
     {
         //
     }
@@ -46,10 +46,10 @@ class DashboardMateriController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Prodis  $prodis
+     * @param  \App\Models\Materi  $materi
      * @return \Illuminate\Http\Response
      */
-    public function show(Prodis $prodis)
+    public function show(Materi $materi)
     {
         //
     }
@@ -57,10 +57,10 @@ class DashboardMateriController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Prodis  $prodis
+     * @param  \App\Models\Materi  $materi
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Materi $materi)
     {
         return view('dashboard.materi.edit', [
             'title' => 'Dashboard',
@@ -70,11 +70,11 @@ class DashboardMateriController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProdisRequest  $request
-     * @param  \App\Models\Prodis  $prodis
+     * @param  \App\Http\Requests\UpdateMateriRequest  $request
+     * @param  \App\Models\Materi  $materi
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProdisRequest $request, Prodis $prodis)
+    public function update(UpdateMateriRequest $request, Materi $materi)
     {
         //
     }
@@ -82,10 +82,10 @@ class DashboardMateriController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Prodis  $prodis
+     * @param  \App\Models\Materi  $materi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Prodis $prodis)
+    public function destroy(Materi $materi)
     {
         //
     }

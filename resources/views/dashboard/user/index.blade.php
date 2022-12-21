@@ -36,32 +36,51 @@
                                 <th>#</th>
                                 <th>Nama Lengkap</th>
                                 <th>Nim</th>
+                                <th>Prodi</th>
                                 <th>Asal Kampus</th>
                                 <th>Role</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($users as $user)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->nim }}</td>
+                                <td>{{ $user->prodis->name_prodi }}</td>
+                                <td>{{ $user->asalkampus }}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                                        data-bs-target="#modalEdit">
-                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    @php
+                                        if($user->role == 0){
+                                            $status = "Mahasiswa";
+                                        }else if($user->role == 1){
+                                            $status = "Dosen";
+                                        }else if($user->role == 2){
+                                            $status = "Ketua Prodi";
+                                        }else if($user->role == 3){
+                                            $status = "Admin";
+                                        }
+                                    @endphp
+                                    {{ $status }}
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-dark" data-bs-toggle="modal"
+                                        data-bs-target="#modalResetPassword{{ $loop->iteration }}">
+                                        <i class="fa-regular fa-unlock-keyhole"></i>
                                     </button>
+                                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-warning">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                      </a>
                                     <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalHapus">
+                                        data-bs-target="#modalHapus{{ $loop->iteration }}">
                                         <i class="fa-regular fa-trash-can fa-lg"></i>
                                     </button>
                                 </td>
                             </tr>
 
                             {{-- Modal Hapus User --}}
-                            <div class="modal fade" id="modalHapus" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            <div class="modal fade" id="modalHapus{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -70,12 +89,12 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="" method="POST">
+                                        <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <div class="modal-body">
                                                 <p class="fs-6">Apakah anda yakin akan menghapus user
-                                                    <b></b>?
+                                                    <b>{{ $user->name }}</b>?
                                                 </p>
                                             </div>
                                             <div class="modal-footer">
@@ -90,18 +109,19 @@
                             {{-- / Modal Hapus User --}}
 
                             {{-- Modal Reset Password --}}
-                            <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            <div class="modal fade" id="modalResetPassword{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <form action="/dashboard/user/reset-password" method="post">
                                             @csrf
                                             <div class="modal-body">
+                                                <p class="fs-6"> <b> User : {{ $user->name }} </b></p>
                                                 <input type="hidden" name="id" value="">
                                                 <div class="mb-3">
                                                     <label for="nim" class="form-label">Ubah Nim</label>
@@ -184,6 +204,7 @@
                                 </div>
                             </div>
                             {{-- / Modal Reset Password --}}
+                            @endforeach
                         </tbody>
                     </table>
                     {{-- End Table --}}

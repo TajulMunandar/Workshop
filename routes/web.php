@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardProdiController;
 use App\Http\Controllers\DashboardMateriController;
@@ -30,8 +29,8 @@ Route::get('/beranda', [BerandaController::class, 'index']);
 Route::prefix('/dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('/user',DashboardUserController::class);
-    Route::get('/prodi', [DashboardProdiController::class, 'index']);
-    Route::resource('/materi',DashboardMateriController::class);
+    Route::resource('/prodi', DashboardProdiController::class);
+    Route::resource('/materi', DashboardMateriController::class);
     Route::get('/matakuliah', [DashboardMatakuliahController::class, 'index']);
 });
 
