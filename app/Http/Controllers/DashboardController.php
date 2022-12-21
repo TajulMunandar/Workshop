@@ -16,7 +16,6 @@ class DashboardController extends Controller
     {
         return view('dashboard.index', [
             'title' => 'Dashboard',
-            'users' => User::all(),
         ]);
     }
 

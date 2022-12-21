@@ -14,7 +14,7 @@ class DashboardUserController extends Controller
     public function index()
     {
         return view('dashboard.user.index', [
-            'title' => 'Dashboard',
+            'title' => 'User',
         ]);
     }
 
@@ -26,7 +26,7 @@ class DashboardUserController extends Controller
     public function create()
     {
         return view('dashboard.user.create', [
-            'title' => 'Dashboard',
+            'title' => 'Tambah User',
         ]);
     }
 

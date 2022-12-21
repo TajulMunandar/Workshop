@@ -16,7 +16,7 @@ class DashboardProdiController extends Controller
     public function index()
     {
         return view('dashboard.prodi.index', [
-            'title' => 'Dashboard',
+            'title' => 'Prodi',
         ]);
     }
 

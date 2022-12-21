@@ -1,9 +1,6 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-<body>
-    <h1>Materi</h1>
-</body>
     <div class="row">
         <div class="col">
             @if (session()->has('success'))

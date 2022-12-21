@@ -1,10 +1,6 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-
-    <body>
-        <h1>User</h1>
-    </body>
     <div class="row">
         <div class="col">
             @if (session()->has('success'))

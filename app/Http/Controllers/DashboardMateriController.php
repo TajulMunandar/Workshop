@@ -16,7 +16,7 @@ class DashboardMateriController extends Controller
     public function index()
     {
         return view('dashboard.materi.index', [
-            'title' => 'Dashboard',
+            'title' => 'Materi',
         ]);
     }
 

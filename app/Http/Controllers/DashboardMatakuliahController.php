@@ -16,7 +16,7 @@ class DashboardMatakuliahController extends Controller
     public function index()
     {
         return view('dashboard.matakuliah.index', [
-            'title' => 'Dashboard',
+            'title' => 'Mata Kuliah',
         ]);
     }
 
