@@ -68,12 +68,6 @@
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <div class="container-xxl flex-grow-1 container-p-y">
-            <div class="row">
-              <div class="col">
-                <h1 class="fw-bold fs-2 mb-5"></h1>
-              </div>
-            </div>
-
             <!-- Content -->
             <main>
               @yield('content')

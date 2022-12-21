@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardProdiController;
 use App\Http\Controllers\DashboardMateriController;
 use App\Http\Controllers\DashboardMatakuliahController;
-use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
