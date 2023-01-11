@@ -113,16 +113,6 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="Prodi" class="form-label">Prodi</label>
-                                                    <div id="pwd1" class="input-group">
-                                                        <select class="form-select" name="role" id="role">
-                                                            <option value="0">Matematika</option>
-                                                            <option value="1">Faktormatika</option>
-                                                            <option value="2">Telematika</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -145,7 +135,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="/dashboard/user/reset-password" method="post">
+                                        <form action="" method="post">
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id" value="">
@@ -163,15 +153,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for=" Nama Prodi" class="form-label">Prodi</label>
-                                                    <div id="pwd1" class="input-group">
-                                                        <select class="form-select" name="role" id="role">
-                                                            <option value="0">Matematika</option>
-                                                            <option value="1">Faktormatika</option>
-                                                            <option value="2">Telematika</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                    <label for="id_prodi" class="form-label">Prodi</label>
+                                                    <select class="form-select" name="id_prodi" id="id_prodi">
+                                                      @foreach ($prodis as $prodi)
+                                                        @if (old('id_prodi') == $prodi->id)
+                                                          <option value="{{ $prodi->id }}" selected>{{ $prodi->name_prodi }}</option>
+                                                        @else
+                                                          <option value="{{ $prodi->id }}">{{ $prodi->name_prodi }}</option>
+                                                        @endif
+                                                      @endforeach
+                                                    </select>
+                                                  </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"

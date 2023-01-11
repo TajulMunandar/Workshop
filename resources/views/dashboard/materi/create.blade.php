@@ -17,6 +17,17 @@
                         @enderror
                     </div>
 
+                    <div class="mb-3">
+                        <label for="Matakuliah" class="form-label">Matakuliah</label>
+                        <div id="Matakuliah" class="input-group">
+                            <select class="form-select" name="role" id="role">
+                                <option value="0">Statitiska - Matematika</option>
+                                <option value="1">Aljabar Linier - Faktormatika</option>
+                                <option value="2">Ilmu Komunikasi - Telematika</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="form-group mb-3">
                         <label for="">Masukan Artikel</label>
                         <textarea name="desc" id="summernote" class="form-control  @error('desc') is-invalid @enderror"></textarea>
@@ -27,7 +38,9 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Sumbit Materi</button>
+                    </div>
                 </form>
             </div>
         </div>
