@@ -18,17 +18,6 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="">Upload Image</label>
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
-                            id="image" onchange="previewImage()">
-                        @error('image')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-
-                    <div class="form-group mb-3">
                         <label for="">Masukan Artikel</label>
                         <textarea name="desc" id="summernote" class="form-control  @error('desc') is-invalid @enderror"></textarea>
                         @error('desc')
