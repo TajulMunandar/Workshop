@@ -46,9 +46,9 @@
                                 <td>{{ $materi->judul_materi }}</td>
                                 <td>{{ $materi->matakuliahs->nama }}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-warning" href="#">
+                                    <a href="{{ route('materi.edit', $materi->id) }}" class="btn btn-sm btn-warning">
                                         <i class="fa-regular fa-pen-to-square"></i>
-                                    </button>
+                                      </a>
                                     <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalHapus{{ $loop->iteration }}">
                                         <i class="fa-regular fa-trash-can fa-lg"></i>
