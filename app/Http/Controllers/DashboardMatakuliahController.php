@@ -85,7 +85,13 @@ class DashboardMatakuliahController extends Controller
      */
     public function update(UpdateMatakuliahRequest $request, Matakuliah $matakuliah)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'id_prodi' => 'required|max:255',
+        ]);
+
+        Matakuliah::where('id', $matakuliah->id)->update($validatedData);
+        return redirect('/dashboard/matakuliah')->with('success', 'Prodi berhasil diedit!');
     }
 
     /**

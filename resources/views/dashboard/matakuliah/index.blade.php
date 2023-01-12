@@ -85,8 +85,7 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
-                            {{-- / Modal Hapus User --}}
+                                {{-- / Modal Hapus Prodi --}}
 
                             {{-- Modal Reset Password --}}
                             <div class="modal fade" id="modalEdit{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -115,18 +114,29 @@
                                                             </div>
                                                         @enderror
                                                     </div>
+                                                    <div class="mb-3">
+                                                        <label for="id_prodi" class="form-label">Prodi</label>
+                                                        <select class="form-select" name="id_prodi" id="id_prodi">
+                                                          @foreach ($prodis as $prodi)
+                                                            @if (old('id_prodi') == $prodi->id)
+                                                              <option value="{{ $prodi->id }}" selected>{{ $prodi->name_prodi }}</option>
+                                                            @else
+                                                              <option value="{{ $prodi->id }}">{{ $prodi->name_prodi }}</option>
+                                                            @endif
+                                                          @endforeach
+                                                        </select>
+                                                      </div>
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </form>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            {{-- / Modal Edit --}}
+                                {{-- / Modal Edit --}}
 
                             {{-- / Modal Tambah --}}
                             <div class="modal fade" id="modalTambah" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -155,6 +165,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
+
                                                 <div class="mb-3">
                                                     <label for="id_prodi" class="form-label">Prodi</label>
                                                     <select class="form-select" name="id_prodi" id="id_prodi">
