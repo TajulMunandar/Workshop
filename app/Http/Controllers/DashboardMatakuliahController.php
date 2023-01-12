@@ -18,8 +18,8 @@ class DashboardMatakuliahController extends Controller
     {
         return view('dashboard.matakuliah.index', [
             'title' => 'Mata Kuliah',
-            'prodis' => Prodi::all(),
-            'matakuliahs' => Matakuliah::with('')
+            'prodis' => Prodi::select('id as identifier','name_prodi')->get(),
+            'matakuliahs' => Matakuliah::all(),
         ]);
     }
 
@@ -82,7 +82,13 @@ class DashboardMatakuliahController extends Controller
      */
     public function update(UpdateMatakuliahRequest $request, Matakuliah $matakuliah)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'id_prodi' => 'required|max:255',
+        ]);
+
+        Matakuliah::where('id', $matakuliah->id)->update($validatedData);
+        return redirect('/dashboard/matakuliah')->with('success', 'Prodi berhasil diedit!');
     }
 
     /**
@@ -93,6 +99,7 @@ class DashboardMatakuliahController extends Controller
      */
     public function destroy(Matakuliah $matakuliah)
     {
-        //
+        Matakuliah::destroy($matakuliah->id);
+        return redirect('/dashboard/matakuliah')->with('success', "Prodi $matakuliah->nama berhasil dihapus!");
     }
 }
