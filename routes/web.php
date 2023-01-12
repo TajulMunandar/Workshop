@@ -19,16 +19,13 @@ use App\Http\Controllers\DashboardMatakuliahController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.index');
-});
-
 Route::get('/beranda', [BerandaController::class, 'index']);
 
 
 Route::prefix('/dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('/user',DashboardUserController::class);
+    Route::post('/user/reset-password', [DashboardUserController::class, 'resetPasswordAdmin']);
     Route::resource('/prodi', DashboardProdiController::class);
     Route::resource('/materi', DashboardMateriController::class);
     Route::get('/matakuliah', [DashboardMatakuliahController::class, 'index']);

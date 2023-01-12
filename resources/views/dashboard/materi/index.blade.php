@@ -40,49 +40,50 @@
                             </tr>
                         </thead>
                         <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-warning" href="#">
-                                            <i class="fa-regular fa-pen-to-square"></i>
-                                        </button>
-                                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalHapus">
-                                            <i class="fa-regular fa-trash-can fa-lg"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                            @foreach ($materis as $materi)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $materi->judul_materi }}</td>
+                                <td>{{ $materi->matakuliahs->nama }}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" href="#">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalHapus{{ $loop->iteration }}">
+                                        <i class="fa-regular fa-trash-can fa-lg"></i>
+                                    </button>
+                                </td>
+                            </tr>
 
-                                {{-- Modal Hapus User --}}
-                                <div class="modal fade" id="modalHapus" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Hapus Materi</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <form action="" method="POST">
-                                                @method('delete')
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <p class="fs-6">Apakah anda yakin akan menghapus materi
-                                                        <b></b>?</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Batal</button>
-                                                    <button type="submit" class="btn btn-outline-danger">Hapus</button>
-                                                </div>
-                                            </form>
+                            {{-- Modal Hapus User --}}
+                            <div class="modal fade" id="modalHapus{{ $loop->iteration }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Materi</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
+                                        <form action="{{ route('materi.update', $materi->id) }}" method="POST">
+                                            @method('delete')
+                                            @csrf
+                                            <div class="modal-body">
+                                                <p class="fs-6">Apakah anda yakin akan menghapus materi
+                                                    <b>{{ $materi->judul_materi }}</b>?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-outline-danger">Hapus</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                                {{-- / Modal Hapus User --}}
-
+                            </div>
+                            {{-- / Modal Hapus User --}}
+                            @endforeach
                         </tbody>
                     </table>
                     {{-- End Table --}}

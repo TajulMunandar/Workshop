@@ -9,10 +9,8 @@ class Matakuliah extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
-
-    public function penjualanDetails()
+    public function materis()
     {
-        return $this->belongsTo(PenjualanDetail::class);
+        return $this->hasMany(Materi::class);
     }
 }

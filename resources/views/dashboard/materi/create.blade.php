@@ -1,49 +1,50 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-<div class="row">
-    <div class="col">
-        <div class="card mt-3">
-            <div class="card-body">
-                <form action="/store" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group mb-3">
-                        <label for="">Masukan Judul</label>
-                        <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul">
-                        @error('judul')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
+    <div class="row">
+        <div class="col col-lg">
 
-                    <div class="mb-3">
-                        <label for="Matakuliah" class="form-label">Matakuliah</label>
-                        <div id="Matakuliah" class="input-group">
-                            <select class="form-select" name="role" id="role">
-                                <option value="0">Statitiska - Matematika</option>
-                                <option value="1">Aljabar Linier - Faktormatika</option>
-                                <option value="2">Ilmu Komunikasi - Telematika</option>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <form action="{{ route('materi.store') }}" method="post">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="judul_materi" class="form-label">Judul</label>
+                            <input type="text" class="form-control @error('judul_materi') is-invalid @enderror" name="judul_materi"
+                                id="judul_materi" value="{{ old('judul_materi') }}" required>
+                            @error('judul_materi')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_matakuliah" class="form-label">Matakuliah</label>
+                            <select class="form-select" name="id_matakuliah" id="id_matakuliah">
+                                @foreach ($matakuliahs as $matakuliah)
+                                    @if (old('id_matakuliah') == $matakuliah->id)
+                                        <option value="{{ $matakuliah->id }}" selected>{{ $matakuliah->nama }}</option>
+                                    @else
+                                        <option value="{{ $matakuliah->id }}">{{ $matakuliah->nama }}</option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label for="">Masukan Artikel</label>
-                        <textarea name="desc" id="summernote" class="form-control  @error('desc') is-invalid @enderror"></textarea>
-                        @error('desc')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-primary">Sumbit Materi</button>
-                    </div>
-                </form>
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Content</label>
+                            <textarea name="desc" id="summernote" class="form-control  @error('desc') is-invalid @enderror"></textarea>
+                            @error('desc')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">Tambah Materi</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

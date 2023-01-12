@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('matakuliahs', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->foreignId('id_prodi')->unique()->constrained('prodis')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreignId('id_user')->unique()->constrained('users')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('id_prodi')->constrained('prodis')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('id_user')->constrained('users')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });
     }

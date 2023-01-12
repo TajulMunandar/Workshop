@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Materi;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,9 @@ class DashboardController extends Controller
     {
         return view('dashboard.index', [
             'title' => 'Dashboard',
+            'user' => User::all()->count(),
+            'dosen' => User::where('role',1)->count(),
+            'materi' => Materi::all()->count()
         ]);
     }
 
