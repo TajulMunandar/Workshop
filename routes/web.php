@@ -31,7 +31,7 @@ Route::prefix('/dashboard')->group(function () {
     Route::post('/user/reset-password', [DashboardUserController::class, 'resetPasswordAdmin']);
     Route::resource('/prodi', DashboardProdiController::class);
     Route::resource('/materi', DashboardMateriController::class);
-    Route::get('/matakuliah', [DashboardMatakuliahController::class, 'index']);
+    Route::resource('/matakuliah', DashboardMatakuliahController::class);
 });
 
 Route::controller(LoginController::class)->group(function () {

@@ -195,40 +195,4 @@
         </div>
     </div>
     </div>
-
-    <script>
-        const input1 = document.querySelector("#pwd1 input");
-        const eye1 = document.querySelector("#pwd1 .fa-eye-slash");
-
-        eye1.addEventListener("click", () => {
-            if (input1.type === "password") {
-                input1.type = "text";
-
-                eye1.classList.remove("fa-eye-slash");
-                eye1.classList.add("fa-eye");
-            } else {
-                input1.type = "password";
-
-                eye1.classList.remove("fa-eye");
-                eye1.classList.add("fa-eye-slash");
-            }
-        });
-
-        const input2 = document.querySelector("#pwd2 input");
-        const eye2 = document.querySelector("#pwd2 .fa-eye-slash");
-
-        eye2.addEventListener("click", () => {
-            if (input2.type === "password") {
-                input2.type = "text";
-
-                eye2.classList.remove("fa-eye-slash");
-                eye2.classList.add("fa-eye");
-            } else {
-                input2.type = "password";
-
-                eye2.classList.remove("fa-eye");
-                eye2.classList.add("fa-eye-slash");
-            }
-        });
-    </script>
 @endsection

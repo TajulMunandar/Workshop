@@ -15,4 +15,10 @@ class Prodi extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function matakuliahs()
+    {
+        return $this->hasMany(Matakuliah::class);
+    }
+
 }

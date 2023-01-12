@@ -29,7 +29,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             if (Auth::user()->role != 2) {
-                return redirect()->intended('/');
+                return redirect()->intended('/beranda');
             } else {
                 return redirect()->intended('/dashboard');
             }
@@ -45,7 +45,7 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 
     /**

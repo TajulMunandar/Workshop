@@ -21,10 +21,10 @@
 
     <div class="row">
         <div class="col">
-            <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#modalTambah">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTambah">
                 <i class="fa-regular fa-plus me-2"></i>
                 Tambah
-            </a>
+            </button>
 
             <div class="card mt-3">
                 <div class="card-body">
@@ -36,6 +36,7 @@
                                 <th>#</th>
                                 <th>Nama Matakuliah</th>
                                 <th>Prodi</th>
+                                <th>Dosen</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -44,7 +45,8 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $matkul->nama }}</td>
-                                <td>{{ $matkul->id_prodi }}</td>
+                                <td>{{ $matkul->prodis->name_prodi }}</td>
+                                <td>{{ $matkul->users->name }}</td>
                                 <td>
                                     <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
                                         data-bs-target="#modalEdit{{ $loop->iteration }}">
@@ -58,20 +60,20 @@
                             </tr>
 
                             {{-- Modal Hapus User --}}
-                            <div class="modal fade" id="modalHapus" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            <div class="modal fade" id="modalHapus{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Mataduliah</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Mata Kuliah</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="" method="POST">
+                                        <form action="{{ route("matakuliah.destroy", $matkul->id ) }}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <div class="modal-body">
-                                                <p class="fs-6">Apakah anda yakin akan menghapus Matakuliah
+                                                <p class="fs-6">Apakah anda yakin akan menghapus <b>{{ $matkul->nama }}</b>
                                                     <b></b>?
                                                 </p>
                                             </div>
@@ -87,7 +89,7 @@
                             {{-- / Modal Hapus User --}}
 
                             {{-- Modal Reset Password --}}
-                            <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            <div class="modal fade" id="modalEdit{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -136,17 +138,17 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="" method="post">
+                                        <form action="{{ route('matakuliah.store') }}" method="post">
                                             @csrf
                                             <div class="modal-body">
-                                                <input type="hidden" name="id" value="">
+                                                <input type="hidden" name="id">
                                                 <div class="mb-3">
-                                                    <label for="Ubah Nama Prodi" class="form-label"> Nama Matakuliah</label>
+                                                    <label for="nama" class="form-label"> Nama Matakuliah</label>
                                                     <div id="pwd1" class="input-group">
-                                                        <input type=" Nama Prodi"
-                                                            class="form-control border-end-0 @error(' Nama Prodi') is-invalid @enderror"
-                                                            name=" Nama Prodi" id=" Nama Prodi" value="" required>
-                                                        @error(' Nama Prodi')
+                                                        <input type="name"
+                                                            class="form-control border-end-0 @error('nama') is-invalid @enderror"
+                                                            name="nama" id="nama" required>
+                                                        @error('nama')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
                                                             </div>
@@ -164,7 +166,19 @@
                                                         @endif
                                                       @endforeach
                                                     </select>
-                                                  </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="id_user" class="form-label">User</label>
+                                                    <select class="form-select" name="id_user" id="id_user">
+                                                      @foreach ($users as $user)
+                                                        @if (old('id_user') == $user->id)
+                                                          <option value="{{ $user->id }}" selected>{{ $user->name }}</option>
+                                                        @else
+                                                          <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                                        @endif
+                                                      @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -186,39 +200,4 @@
     </div>
     </div>
 
-    <script>
-        const input1 = document.querySelector("#pwd1 input");
-        const eye1 = document.querySelector("#pwd1 .fa-eye-slash");
-
-        eye1.addEventListener("click", () => {
-            if (input1.type === "password") {
-                input1.type = "text";
-
-                eye1.classList.remove("fa-eye-slash");
-                eye1.classList.add("fa-eye");
-            } else {
-                input1.type = "password";
-
-                eye1.classList.remove("fa-eye");
-                eye1.classList.add("fa-eye-slash");
-            }
-        });
-
-        const input2 = document.querySelector("#pwd2 input");
-        const eye2 = document.querySelector("#pwd2 .fa-eye-slash");
-
-        eye2.addEventListener("click", () => {
-            if (input2.type === "password") {
-                input2.type = "text";
-
-                eye2.classList.remove("fa-eye-slash");
-                eye2.classList.add("fa-eye");
-            } else {
-                input2.type = "password";
-
-                eye2.classList.remove("fa-eye");
-                eye2.classList.add("fa-eye-slash");
-            }
-        });
-    </script>
 @endsection

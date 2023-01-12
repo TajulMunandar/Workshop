@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand">
-      <a class="navbar-brand fs-5 fw-bold" href="/">
+      <a class="navbar-brand fs-5 fw-bold" href="/dashboard">
         <span class="merek">TANYO</span> MERUNOE
       </a>
     </div>
@@ -28,7 +28,7 @@
         </a>
       </li>
       <li class="menu-item {{ Request::is('dashboard/matakuliah') ? 'active' : '' }}">
-        <a href="/dashboard/matakuliah" class="menu-link">
+        <a href="{{ route("matakuliah.index") }}" class="menu-link">
           <i class="fa-duotone fa-laptop-file me-3"></i>
           <div data-i18n="Mata-Kuliah">Mata Kuliah</div>
         </a>

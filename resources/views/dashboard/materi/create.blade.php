@@ -3,7 +3,6 @@
 @section('content')
     <div class="row">
         <div class="col col-lg">
-
             <div class="card mt-3">
                 <div class="card-body">
                     <form action="{{ route('materi.store') }}" method="post">
@@ -47,4 +46,5 @@
             </div>
         </div>
     </div>
+
 @endsection

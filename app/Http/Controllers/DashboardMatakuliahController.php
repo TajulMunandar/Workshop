@@ -6,6 +6,7 @@ use App\Models\Matakuliah;
 use App\Http\Requests\StoreMatakuliahRequest;
 use App\Http\Requests\UpdateMatakuliahRequest;
 use App\Models\Prodi;
+use App\Models\User;
 
 class DashboardMatakuliahController extends Controller
 {
@@ -16,11 +17,12 @@ class DashboardMatakuliahController extends Controller
      */
     public function index()
     {
+        $matakuliahs = Matakuliah::with('prodis', 'users')->get();
         return view('dashboard.matakuliah.index', [
             'title' => 'Mata Kuliah',
             'prodis' => Prodi::all(),
-            'matakuliahs' => Matakuliah::with('')
-        ]);
+            'users' => User::all(),
+        ])->with(compact('matakuliahs'));
     }
 
     /**
@@ -44,11 +46,12 @@ class DashboardMatakuliahController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required|max:255',
             'id_prodi' => 'required|max:255',
+            'id_user' => 'required|max:10'
         ]);
 
         Matakuliah::create($validatedData);
 
-        return redirect('/dashboard/matakuliah')->with('success', 'Prodi berhasil disimpan!');
+        return redirect('/dashboard/matakuliah')->with('success', 'Mata Kuliah berhasil disimpan!');
     }
 
     /**
@@ -93,6 +96,7 @@ class DashboardMatakuliahController extends Controller
      */
     public function destroy(Matakuliah $matakuliah)
     {
-        //
+        Matakuliah::destroy($matakuliah->id);
+        return redirect('/dashboard/matakuliah')->with('success', "Prodi $matakuliah->nama berhasil dihapus!");
     }
 }
