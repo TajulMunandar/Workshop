@@ -19,10 +19,6 @@ use App\Http\Controllers\DashboardMatakuliahController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.index');
-});
-
 Route::get('/beranda', [BerandaController::class, 'index']);
 
 

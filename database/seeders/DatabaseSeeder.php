@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Matakuliah;
 use App\Models\Prodi;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -30,6 +31,24 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123'),
             'role' => 0,
             'id_prodi' => 1,
+        ]);
+
+        Matakuliah::create([
+            'nama' => 'Matematika',
+            'id_prodi' => 1,
+            'id_user' => 1
+        ]);
+
+        Matakuliah::create([
+            'nama' => 'Agama',
+            'id_prodi' => 1,
+            'id_user' => 1
+        ]);
+
+        Matakuliah::create([
+            'nama' => 'Bahasa Indonesia',
+            'id_prodi' => 1,
+            'id_user' => 1
         ]);
     }
 }

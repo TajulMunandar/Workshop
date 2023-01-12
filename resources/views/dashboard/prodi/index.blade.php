@@ -84,7 +84,7 @@
                                                         @enderror
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="nama_ketua_prodi" class="form-label">Nama Prodi</label>
+                                                        <label for="nama_ketua_prodi" class="form-label">Nama Ketua Prodi</label>
                                                         <input type="text"
                                                             class="form-control @error('nama_ketua_prodi') is-invalid @enderror"
                                                             name="nama_ketua_prodi" id="nama_ketua_prodi"
@@ -132,20 +132,6 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <form action="" method="POST">
-                                            @method('delete')
-                                            @csrf
-                                            <div class="modal-body">
-                                                <p class="fs-6">Apakah anda yakin akan menghapus Data prodi
-                                                    <b></b>?
-                                                </p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Batal</button>
-                                                <button type="submit" class="btn btn-outline-danger">Hapus</button>
-                                            </div>
-                                        </form>
                                     </div>
                                 </div>
                                 {{-- / Modal Hapus Prodi --}}
@@ -197,51 +183,9 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <form action="/dashboard/user/reset-password" method="post">
-                                            @csrf
-                                            <div class="modal-body">
-                                                <input type="hidden" name="id" value="">
-                                                <div class="mb-3">
-                                                    <label for=" Nama Prodi" class="form-label">Prodi</label>
-                                                    <div id="pwd1" class="input-group">
-                                                        <input type="Prodi"
-                                                            class="form-control border-end-0 @error('Prodi') is-invalid @enderror"
-                                                            name="Prodi" id="Prodi" value=""
-                                                            required>
-                                                        @error('Prodi')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }}
-                                                            </div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="KetuaProdi" class="form-label">Ubah Nama Ketua
-                                                        Prodi</label>
-                                                    <div id="pwd1" class="input-group">
-                                                        <input type="KetuaProdi"
-                                                            class="form-control border-end-0 @error('KetuaProdi') is-invalid @enderror"
-                                                            name="KetuaProdi" id="KetuaProdi" value=""
-                                                            required>
-                                                        @error('KetuaProdi')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }}
-                                                            </div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </form>
                                     </div>
                                 </div>
                                 {{-- / Modal Edit Jabatan --}}
-
-
                             @endforeach
                         </tbody>
                     </table>

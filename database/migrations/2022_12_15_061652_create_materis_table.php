@@ -15,11 +15,9 @@ return new class extends Migration
     {
         Schema::create('materis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_matakuliah')->unique()->constrained('matakuliahs')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('id_matakuliah')->constrained('matakuliahs')->onUpdate('cascade')->onDelete('restrict');
             $table->string('judul_materi');
             $table->text('body');
-            $table->foreignId('id_images')->unique()->constrained('images')->onUpdate('cascade')->onDelete('restrict');
-            $table->integer('halaman');
             $table->timestamps();
         });
     }
