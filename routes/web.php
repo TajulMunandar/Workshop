@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BerandaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardProdiController;
 use App\Http\Controllers\DashboardMateriController;
 use App\Http\Controllers\DashboardMatakuliahController;
+use App\Http\Controllers\MateriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,7 @@ use App\Http\Controllers\DashboardMatakuliahController;
 */
 
 Route::get('/beranda', [BerandaController::class, 'index']);
+Route::get('/materi', [MateriController::class, 'index']);
 
 
 Route::prefix('/dashboard')->group(function () {

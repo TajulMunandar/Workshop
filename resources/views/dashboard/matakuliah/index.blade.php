@@ -40,17 +40,18 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($matakuliahs as $matkul)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $matkul->nama }}</td>
+                                <td>{{ $matkul->id_prodi }}</td>
                                 <td>
                                     <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                                        data-bs-target="#modalEdit">
+                                        data-bs-target="#modalEdit{{ $loop->iteration }}">
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </button>
                                     <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#modalHapus">
+                                        data-bs-target="#modalHapus{{ $loop->iteration }}">
                                         <i class="fa-regular fa-trash-can fa-lg"></i>
                                     </button>
                                 </td>
@@ -174,6 +175,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                             {{-- / Modal Tambah --}}
                         </tbody>
                     </table>
