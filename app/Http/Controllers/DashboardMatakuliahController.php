@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Matakuliah;
 use App\Http\Requests\StoreMatakuliahRequest;
 use App\Http\Requests\UpdateMatakuliahRequest;
+use App\Models\Prodi;
 
 class DashboardMatakuliahController extends Controller
 {
@@ -17,6 +18,8 @@ class DashboardMatakuliahController extends Controller
     {
         return view('dashboard.matakuliah.index', [
             'title' => 'Mata Kuliah',
+            'prodis' => Prodi::all(),
+            'matakuliahs' => Matakuliah::with('')
         ]);
     }
 
@@ -38,7 +41,14 @@ class DashboardMatakuliahController extends Controller
      */
     public function store(StoreMatakuliahRequest $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'id_prodi' => 'required|max:255',
+        ]);
+
+        Matakuliah::create($validatedData);
+
+        return redirect('/dashboard/matakuliah')->with('success', 'Prodi berhasil disimpan!');
     }
 
     /**
