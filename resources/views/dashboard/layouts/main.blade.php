@@ -34,6 +34,8 @@
   <!-- sweetalert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
 
+  {{-- Summernote CSS --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css" />
 
   {{-- Chart JS --}}
   <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -108,6 +110,23 @@
   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
   <script src="{{ asset('js/datatables.js') }}"></script>
+
+  {{-- JQUERY --}}
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
+
+  {{-- Summernote JS --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          $('#summernote').summernote({
+              height: 300,
+          });
+      });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>

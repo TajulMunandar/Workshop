@@ -15,26 +15,26 @@
           <div data-i18n="Analytics">Dashboard</div>
         </a>
       </li>
-      <li class="menu-item {{ Request::is('user') ? 'active' : '' }}">
+      <li class="menu-item {{ Request::is('dashboard/user') ? 'active' : '' }}">
         <a href="{{ route("user.index") }}" class="menu-link">
           <i class="fa-duotone fa-user me-3"></i>
           <div data-i18n="User">User</div>
         </a>
       </li>
-      <li class="menu-item {{ Request::is('prodi') ? 'active' : '' }}">
+      <li class="menu-item {{ Request::is('dashboard/prodi') ? 'active' : '' }}">
         <a href="/dashboard/prodi" class="menu-link">
           <i class="fa-duotone fa-building me-3"></i>
           <div data-i18n="Prodi">Prodi</div>
         </a>
       </li>
-      <li class="menu-item {{ Request::is('matakuliah') ? 'active' : '' }}">
+      <li class="menu-item {{ Request::is('dashboard/matakuliah') ? 'active' : '' }}">
         <a href="/dashboard/matakuliah" class="menu-link">
           <i class="fa-duotone fa-laptop-file me-3"></i>
           <div data-i18n="Mata-Kuliah">Mata Kuliah</div>
         </a>
       </li>
 
-      <li class="menu-item {{ Request::is('materi') ? 'active' : '' }}">
+      <li class="menu-item {{ Request::is('dashboard/materi') ? 'active' : '' }}">
         <a href="/dashboard/materi" class="menu-link">
           <i class="fa-duotone fa-newspaper me-3"></i>
           <div data-i18n="Materi">Materi</div>

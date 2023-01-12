@@ -27,7 +27,9 @@ class DashboardMateriController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.materi.create', [
+            'title' => 'Dashboard',
+        ]);
     }
 
     /**
@@ -60,7 +62,9 @@ class DashboardMateriController extends Controller
      */
     public function edit(Materi $materi)
     {
-        //
+        return view('dashboard.materi.edit', [
+            'title' => 'Dashboard',
+        ]);
     }
 
     /**

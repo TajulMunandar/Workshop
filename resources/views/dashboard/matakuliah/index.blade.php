@@ -1,9 +1,6 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-<body>
-    <h1>Mata Kuliah</h1>
-</body>
     <div class="row">
         <div class="col">
             @if (session()->has('success'))
@@ -24,7 +21,7 @@
 
     <div class="row">
         <div class="col">
-            <a class="btn btn-primary" href="">
+            <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#modalTambah">
                 <i class="fa-regular fa-plus me-2"></i>
                 Tambah
             </a>
@@ -43,112 +40,141 @@
                             </tr>
                         </thead>
                         <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                                            data-bs-target="#modalEdit">
-                                            <i class="fa-regular fa-pen-to-square"></i>
-                                        </button>
-                                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalHapus">
-                                            <i class="fa-regular fa-trash-can fa-lg"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#modalEdit">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalHapus">
+                                        <i class="fa-regular fa-trash-can fa-lg"></i>
+                                    </button>
+                                </td>
+                            </tr>
 
-                                {{-- Modal Hapus User --}}
-                                <div class="modal fade" id="modalHapus" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Hapus User</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <form action="" method="POST">
-                                                @method('delete')
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <p class="fs-6">Apakah anda yakin akan menghapus user
-                                                        <b></b>?</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Batal</button>
-                                                    <button type="submit" class="btn btn-outline-danger">Hapus</button>
-                                                </div>
-                                            </form>
+                            {{-- Modal Hapus User --}}
+                            <div class="modal fade" id="modalHapus" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Mataduliah</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
+                                        <form action="" method="POST">
+                                            @method('delete')
+                                            @csrf
+                                            <div class="modal-body">
+                                                <p class="fs-6">Apakah anda yakin akan menghapus Matakuliah
+                                                    <b></b>?
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-outline-danger">Hapus</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                                {{-- / Modal Hapus User --}}
+                            </div>
+                            {{-- / Modal Hapus User --}}
 
-                                {{-- Modal Reset Password --}}
-                                <div class="modal fade" id="modalEdit" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <form action="/dashboard/user/reset-password" method="post">
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <input type="hidden" name="id" value="">
-                                                    <div class="mb-3">
-                                                        <label for="password" class="form-label">Password Baru</label>
-                                                        <div id="pwd1" class="input-group">
-                                                            <input type="password"
-                                                                class="form-control border-end-0 @error('password') is-invalid @enderror"
-                                                                name="password" id="password"
-                                                                value="{{ old('password') }}" required>
-                                                            <span class="input-group-text cursor-pointer">
-                                                                <i class="fa-regular fa-eye-slash" id="togglePassword"></i>
-                                                            </span>
-                                                            @error('password')
-                                                                <div class="invalid-feedback">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="password2" class="form-label">Konfirmasi Password
-                                                            Baru</label>
-                                                        <div id="pwd2" class="input-group">
-                                                            <input type="password"
-                                                                class="form-control border-end-0 @error('password2') is-invalid @enderror"
-                                                                name="password2" id="password2"
-                                                                value="{{ old('password2') }}" required>
-                                                            <span class="input-group-text cursor-pointer">
-                                                                <i class="fa-regular fa-eye-slash"
-                                                                    id="togglePassword"></i>
-                                                            </span>
-                                                            @error('password2')
-                                                                <div class="invalid-feedback">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </form>
+                            {{-- Modal Reset Password --}}
+                            <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
+                                        <form action="/dashboard/user/reset-password" method="post">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <input type="hidden" name="id" value="">
+                                                <div class="mb-3">
+                                                    <label for=" Matakuliah" class="form-label">Ubah Nama Matakuliah</label>
+                                                    <div id="pwd1" class="input-group">
+                                                        <input type="Matakuliah"
+                                                            class="form-control border-end-0 @error('Matakuliah') is-invalid @enderror"
+                                                            name="Matakuliah" id="Matakuliah" value=""
+                                                            required>
+                                                        @error('Matakuliah')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                                {{-- / Modal Reset Password --}}
+                            </div>
+                            {{-- / Modal Edit --}}
+
+                            {{-- / Modal Tambah --}}
+                            <div class="modal fade" id="modalTambah" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Tambah</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <form action="" method="post">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <input type="hidden" name="id" value="">
+                                                <div class="mb-3">
+                                                    <label for="Ubah Nama Prodi" class="form-label"> Nama Matakuliah</label>
+                                                    <div id="pwd1" class="input-group">
+                                                        <input type=" Nama Prodi"
+                                                            class="form-control border-end-0 @error(' Nama Prodi') is-invalid @enderror"
+                                                            name=" Nama Prodi" id=" Nama Prodi" value="" required>
+                                                        @error(' Nama Prodi')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="id_prodi" class="form-label">Prodi</label>
+                                                    <select class="form-select" name="id_prodi" id="id_prodi">
+                                                      @foreach ($prodis as $prodi)
+                                                        @if (old('id_prodi') == $prodi->id)
+                                                          <option value="{{ $prodi->id }}" selected>{{ $prodi->name_prodi }}</option>
+                                                        @else
+                                                          <option value="{{ $prodi->id }}">{{ $prodi->name_prodi }}</option>
+                                                        @endif
+                                                      @endforeach
+                                                    </select>
+                                                  </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Tambah</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- / Modal Tambah --}}
                         </tbody>
                     </table>
                     {{-- End Table --}}

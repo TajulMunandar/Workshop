@@ -7,7 +7,6 @@ use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardProdiController;
 use App\Http\Controllers\DashboardMateriController;
 use App\Http\Controllers\DashboardMatakuliahController;
-use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,16 +19,20 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', function () {
+    return view('dashboard.index');
+});
+
+Route::get('/beranda', [BerandaController::class, 'index']);
+
 
 Route::prefix('/dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('/user',DashboardUserController::class);
     Route::post('/user/reset-password', [DashboardUserController::class, 'resetPasswordAdmin']);
     Route::resource('/prodi', DashboardProdiController::class);
-    Route::get('/materi', [DashboardMateriController::class, 'index']);
+    Route::resource('/materi', DashboardMateriController::class);
     Route::get('/matakuliah', [DashboardMatakuliahController::class, 'index']);
-
 });
 
 Route::controller(LoginController::class)->group(function () {
