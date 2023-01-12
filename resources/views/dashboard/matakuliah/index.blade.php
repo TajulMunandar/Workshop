@@ -85,6 +85,7 @@
                                         </form>
                                     </div>
                                 </div>
+                            </div>
                                 {{-- / Modal Hapus Prodi --}}
 
                             {{-- Modal Reset Password --}}
@@ -132,6 +133,7 @@
                                                         data-bs-dismiss="modal">Batal</button>
                                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                                 </div>
+                                            </div>
                                             </form>
                                         </div>
                                     </div>
@@ -165,7 +167,6 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-
                                                 <div class="mb-3">
                                                     <label for="id_prodi" class="form-label">Prodi</label>
                                                     <select class="form-select" name="id_prodi" id="id_prodi">
@@ -208,7 +209,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 @endsection
