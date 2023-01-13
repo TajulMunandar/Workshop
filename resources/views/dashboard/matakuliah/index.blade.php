@@ -88,7 +88,7 @@
                             </div>
                                 {{-- / Modal Hapus Prodi --}}
 
-                            {{-- Modal Reset Password --}}
+                            {{-- Modal Edit --}}
                             <div class="modal fade" id="modalEdit{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
@@ -98,12 +98,13 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="/dashboard/user/reset-password" method="post">
+                                        <form action="{{ route("matakuliah.update", $matkul->id ) }}" method="post">
+                                            @method('put')
                                             @csrf
                                             <div class="modal-body">
                                                 <input type="hidden" name="id" value="">
                                                 <div class="mb-3">
-                                                    <label for=" Matakuliah" class="form-label">Ubah Nama Matakuliah</label>
+                                                    <label for=" Matakuliah" class="form-label">Nama Matakuliah</label>
                                                     <div id="pwd1" class="input-group">
                                                         <input type="name"
                                                             class="form-control border-end-0 @error('nama') is-invalid @enderror"
@@ -128,7 +129,7 @@
                                                         </select>
                                                       </div>
                                                     <div class="mb-3">
-                                                        <label for="id_user" class="form-label">Ubag </label>
+                                                        <label for="id_user" class="form-label">Dosen</label>
                                                         <select class="form-select" name="id_user" id="id_user">
                                                           @foreach ($users as $user)
                                                             @if (old('id_user') == $user->id)

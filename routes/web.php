@@ -26,13 +26,13 @@ Route::get('/materi/{id}', [MateriController::class, 'materi']);
 
 
 Route::prefix('/dashboard')->group(function () {
-    Route::get('/', [DashboardController::class, 'index']);
-    Route::resource('/user',DashboardUserController::class);
-    Route::post('/user/reset-password', [DashboardUserController::class, 'resetPasswordAdmin']);
-    Route::resource('/prodi', DashboardProdiController::class);
-    Route::resource('/materi', DashboardMateriController::class);
-    Route::resource('/matakuliah', DashboardMatakuliahController::class);
-});
+    Route::get('/', [DashboardController::class, 'index'])->middleware('dashboard');
+    Route::resource('/user',DashboardUserController::class)->middleware('dashboard');
+    Route::post('/user/reset-password', [DashboardUserController::class, 'resetPasswordAdmin'])->middleware('dashboard');
+    Route::resource('/prodi', DashboardProdiController::class)->middleware('dashboard');
+    Route::resource('/materi', DashboardMateriController::class)->middleware('dashboard');
+    Route::resource('/matakuliah', DashboardMatakuliahController::class)->middleware('dashboard');
+})->middleware('dashboard');
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->middleware('guest');

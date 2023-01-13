@@ -89,6 +89,7 @@ class DashboardMatakuliahController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required|max:255',
             'id_prodi' => 'required|max:255',
+            'id_user' => 'required|max:255',
         ]);
 
         Matakuliah::where('id', $matakuliah->id)->update($validatedData);

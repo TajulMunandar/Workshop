@@ -12,9 +12,13 @@ class BerandaController extends Controller
     public function index()
     {
         // $matakuliahs = Matakuliah::with('materis')->get();
+        $materi = Materi::whereHas('matakuliahs', function ($query) {
+            $query->where('id_prodi', auth()->user()->id_prodi);
+        })->get();
+
         return view('homepage.beranda', [
             'title' => 'Dashboard',
-            'materis' => Materi::with('matakuliahs')->latest()->get(),
+            'materis' => $materi,
         ]);
     }
 }
