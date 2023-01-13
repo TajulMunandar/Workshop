@@ -15,6 +15,7 @@ class DashboardMatakuliahController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $matakuliahs = Matakuliah::with('prodis', 'users')->get();
