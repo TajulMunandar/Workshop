@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('materis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_matakuliah')->constrained('matakuliahs')->onUpdate('cascade')->onDelete('restrict');
-            $table->string('judul_materi');
+            $table->string('judul_materi',30);
             $table->text('body');
             $table->timestamps();
         });

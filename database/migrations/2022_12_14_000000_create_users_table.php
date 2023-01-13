@@ -15,13 +15,12 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('nim')->unique();
-            $table->string('asalkampus');
+            $table->string('name', 30);
+            $table->string('nim',16)->unique();
+            $table->string('asalkampus',30);
             $table->string('password');
             $table->tinyInteger('role');
             $table->foreignId('id_prodi')->constrained('prodis')->onUpdate('cascade')->onDelete('restrict');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
