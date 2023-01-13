@@ -105,9 +105,9 @@
                                                 <div class="mb-3">
                                                     <label for=" Matakuliah" class="form-label">Ubah Nama Matakuliah</label>
                                                     <div id="pwd1" class="input-group">
-                                                        <input type="Matakuliah"
-                                                            class="form-control border-end-0 @error('Matakuliah') is-invalid @enderror"
-                                                            name="Matakuliah" id="Matakuliah" value=""
+                                                        <input type="name"
+                                                            class="form-control border-end-0 @error('nama') is-invalid @enderror"
+                                                            name="nama" id="nama" value="{{ old('nama', $matkul->nama) }}"
                                                             required>
                                                         @error('Matakuliah')
                                                             <div class="invalid-feedback">
@@ -127,6 +127,18 @@
                                                           @endforeach
                                                         </select>
                                                       </div>
+                                                    <div class="mb-3">
+                                                        <label for="id_prodi" class="form-label">Prodi</label>
+                                                        <select class="form-select" name="id_prodi" id="id_prodi">
+                                                          @foreach ($prodis as $prodi)
+                                                            @if (old('id_prodi') == $prodi->id)
+                                                              <option value="{{ $prodi->id }}" selected>{{ $prodi->name_prodi }}</option>
+                                                            @else
+                                                              <option value="{{ $prodi->id }}">{{ $prodi->name_prodi }}</option>
+                                                            @endif
+                                                          @endforeach
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
