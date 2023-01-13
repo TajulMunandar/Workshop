@@ -127,6 +127,18 @@
                                                           @endforeach
                                                         </select>
                                                       </div>
+                                                    <div class="mb-3">
+                                                        <label for="id_user" class="form-label">Ubag </label>
+                                                        <select class="form-select" name="id_user" id="id_user">
+                                                          @foreach ($users as $user)
+                                                            @if (old('id_user') == $user->id)
+                                                              <option value="{{ $user->id }}" selected>{{ $user->name }}</option>
+                                                            @else
+                                                              <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                                            @endif
+                                                          @endforeach
+                                                        </select>
+                                                      </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
