@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css" />
 
   {{-- Chart JS --}}
-  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- Page CSS -->
 
@@ -95,6 +95,7 @@
   <!-- / Layout wrapper -->
 
 
+
   {{-- JQUERY --}}
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
@@ -104,6 +105,7 @@
   <script src="{{ asset('vendor/js/menu.js') }}"></script>
 
   <!-- endbuild -->
+
 
   <!-- Main JS -->
   <script src="{{ asset('js/main.js') }}"></script>

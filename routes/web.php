@@ -22,7 +22,7 @@ use App\Http\Controllers\MateriController;
 */
 
 Route::get('/beranda', [BerandaController::class, 'index']);
-Route::get('/materi', [MateriController::class, 'index']);
+Route::get('/materi/{id}', [MateriController::class, 'materi']);
 
 
 Route::prefix('/dashboard')->group(function () {

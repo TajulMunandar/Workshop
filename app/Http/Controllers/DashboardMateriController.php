@@ -44,7 +44,6 @@ class DashboardMateriController extends Controller
      */
     public function store(StoreMateriRequest $request)
     {
-
         Materi::create([
             'judul_materi' => $request->judul_materi,
             'id_matakuliah' => $request->id_matakuliah,
@@ -75,6 +74,8 @@ class DashboardMateriController extends Controller
     {
         return view('dashboard.materi.edit', [
             'title' => 'Dashboard',
+            'materi' => $materi,
+            'matakuliahs' => Matakuliah::all()
         ]);
     }
 
@@ -87,7 +88,15 @@ class DashboardMateriController extends Controller
      */
     public function update(UpdateMateriRequest $request, Materi $materi)
     {
-        //
+        $artikel = Materi::findOrFail($materi['id']);
+
+        $artikel->update([
+            'judul_materi' => $request->judul_materi,
+            'id_matakuliah' => $request->id_matakuliah,
+            'body' => $this->getContent($request->desc)
+        ]);
+
+        return redirect('/dashboard/materi')->with('success', 'Materi berhasil diubah!');
     }
 
     /**

@@ -25,13 +25,15 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block">a</span>
+                                    <span class="fw-semibold d-block">{{ auth()->user()->name }}</span>
                                     <small class="text-muted">
-                                        {{-- @if (auth()->user()->role == 1)
+                                        @if (auth()->user()->role == 1)
                                         Guru
                                         @elseif (auth()->user()->role == 2)
-                                        Operator
-                                        @endif --}}
+                                        Ketua Prodi
+                                        @elseif (auth()->user()->role == 3)
+                                        Admin
+                                        @endif
                                     </small>
                                 </div>
                             </div>

@@ -7,7 +7,7 @@
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                         aria-expanded="false">{{ auth()->user()->name }}</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/profile"><i class="bi bi-person-fill"></i> Profile</a></li>
+                        @if (auth()->user()->role > 0)
                         <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-clipboard-data"></i> Dashboard</a></li>
                         <li>
                             <form action="/logout" method="post">
@@ -15,6 +15,16 @@
                                 <button type="submit" class=" dropdown-item"><i class="bi bi-box-arrow-left"></i>
                                     Logout</a></button>
                             </form>
+                        </li>
+                        @else
+                        <li>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" class=" dropdown-item"><i class="bi bi-box-arrow-left"></i>
+                                    Logout</a></button>
+                            </form>
+                        </li>
+                        @endif
                     </ul>
                 </li>
             @endauth

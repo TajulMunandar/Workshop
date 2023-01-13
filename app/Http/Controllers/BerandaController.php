@@ -14,7 +14,7 @@ class BerandaController extends Controller
         // $matakuliahs = Matakuliah::with('materis')->get();
         return view('homepage.beranda', [
             'title' => 'Dashboard',
-            'materis' => Materi::with('matakuliahs')->latest()->get()
+            'materis' => Materi::with('matakuliahs')->latest()->get(),
         ]);
     }
 }

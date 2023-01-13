@@ -71,8 +71,8 @@
                             <select class="form-select" name="role" id="role">
                                 <option value="0">Mahasiswa</option>
                                 <option value="1">Dosen</option>
-                                <option value="3">ketua Prodi</option>
-                                <option value="4">Admin</option>
+                                <option value="2">ketua Prodi</option>
+                                <option value="3">Admin</option>
                             </select>
                         </div>
                         <div class="text-end">

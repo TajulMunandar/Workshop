@@ -14,6 +14,7 @@
 
     {{-- Font Awesome Icons --}}
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css">
+    <link rel="stylesheet" href="{{ asset('css/article.css') }}">
 
     <link rel="stylesheet" href="{{ asset('vendor/css/core.css') }}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset('vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
@@ -22,16 +23,16 @@
     <title>{{ $title }}</title>
 </head>
 <body>
-   
-    
+
+
     @yield('container')
-   
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <canvas id="myChart" width="0" height="0"></canvas>
     <script>
-    
+
     var fakir = document.getElementById('fakir');
     var sabili = document.getElementById('sabili');
     var amil = document.getElementById('amil');
@@ -62,14 +63,14 @@
         }
     });
 
-   
-    
+
+
 
     function updateChart(){
         var UpadateValues= [fakir.value, sabili.value, amil.value, muallaf.value, ibnu.value, gharimin.value, riqab.value];
         myChart.data.datasets[0].data = UpadateValues;
         myChart.update();
-    }   
+    }
     </script>
 
 </body>

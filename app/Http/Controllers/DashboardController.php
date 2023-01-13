@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Matakuliah;
 use App\Models\Materi;
+use App\Models\Prodi;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -19,6 +21,8 @@ class DashboardController extends Controller
             'title' => 'Dashboard',
             'user' => User::all()->count(),
             'dosen' => User::where('role',1)->count(),
+            'matakuliah' => Matakuliah::all()->count(),
+            'prodi' => Prodi::all()->count(),
             'materi' => Materi::all()->count()
         ]);
     }

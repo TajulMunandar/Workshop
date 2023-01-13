@@ -21,18 +21,18 @@
                     <div class="card">
                         <div class="card-body mb-5">
                             <div class="row d-block">
-                                <div class="col d-flex justify-content-center ">
-                                    <i class="fa-book fa-solid h2"></i>
+                                <div class="col d-flex justify-content-center">
+                                    <i class="fa-book fa-solid h2 text-primary"></i>
                                 </div>
                                 <div class="col">
-                                    <h4 class="card-title text-center mb-3">{{ $materi->matakuliahs->nama }}</h4>
+                                    <h4 class="card-title text-center text-primary mb-3">{{ $materi->matakuliahs->nama }}</h4>
                                     <h5 class="card-title text-center">{{ $materi->matakuliahs->users->name }}</h5>
                                     <p class="card-text text-center">{{ $materi->judul_materi }}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer p-3 ">
-                            <a href="#" class="btn btn-primary ms-2">Pelajari Materi</a>
+                        <div class="card-footer  ">
+                            <a href="/materi/{{ $materi->id }}" class="btn btn-info ms-2 d-block text-white">Pelajari Materi</a>
                         </div>
                     </div>
                 </div>
