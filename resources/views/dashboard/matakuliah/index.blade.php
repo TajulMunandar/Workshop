@@ -105,9 +105,9 @@
                                                 <div class="mb-3">
                                                     <label for=" Matakuliah" class="form-label">Ubah Nama Matakuliah</label>
                                                     <div id="pwd1" class="input-group">
-                                                        <input type="Matakuliah"
-                                                            class="form-control border-end-0 @error('Matakuliah') is-invalid @enderror"
-                                                            name="Matakuliah" id="Matakuliah" value=""
+                                                        <input type="name"
+                                                            class="form-control border-end-0 @error('nama') is-invalid @enderror"
+                                                            name="nama" id="nama" value="{{ old('nama', $matkul->nama) }}"
                                                             required>
                                                         @error('Matakuliah')
                                                             <div class="invalid-feedback">
